@@ -1,4 +1,4 @@
-class Destination < ApplicationRecord
+class DestinationSerializer < ActiveModel::Serializer
   has_many :favorites
   has_many :forecasts
   has_many :favorite_tags, through: :favorites
