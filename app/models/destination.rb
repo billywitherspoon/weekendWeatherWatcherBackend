@@ -3,7 +3,7 @@ class Destination < ApplicationRecord
   has_many :forecasts
   has_many :favorite_tags, through: :favorites
   has_many :users, through: :favorites
-  after_initialize :add_forecast
+  after_create :add_forecast
 
   def add_forecast
     forecast = Forecast.new 
