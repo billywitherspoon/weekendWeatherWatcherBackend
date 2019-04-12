@@ -1,6 +1,6 @@
 require_relative 'boot'
 
-require "rails"
+require "rails/all"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -10,6 +10,11 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
+#require dark_sky Model
+require_relative '../lib/api_communicators/dark_sky.rb'
+#require api_keys
+require_relative './api_keys.rb'
+# require "./api_communicators/dark_sky"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
