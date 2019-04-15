@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
    private 
 
    def destination_params
-      params.permit(:email, :password, :firstname, :lastname)
+      params.permit(:username, :password, :firstname, :lastname)
    end
 
    def set_destination
