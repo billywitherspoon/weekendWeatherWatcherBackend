@@ -1,5 +1,5 @@
 class FavoriteSerializer < ActiveModel::Serializer
-  attributes :destination_id, :user_id
+  attributes :id, :destination_id, :user_id
   has_many :favorite_tags
   belongs_to :destination
   belongs_to :user

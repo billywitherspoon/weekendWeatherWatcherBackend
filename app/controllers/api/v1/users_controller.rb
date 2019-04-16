@@ -11,14 +11,19 @@ class Api::V1::UsersController < ApplicationController
    end 
 
    def create 
-      @user = User.find_or_create_by(destination_params)
-      render json: @user
-   end 
+      @user = User.new(destination_params)
+      if @user.valid?
+         @user.save
+         render json: @user 
+      else 
+         render json: @user.errors.full_messages
+      end
+   end
 
    private 
 
    def destination_params
-      params.permit(:username, :password, :firstname, :lastname)
+      params.permit(:username, :password, :first_name, :last_name)
    end
 
    def set_destination
