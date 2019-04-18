@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_210028) do
     t.string "city"
     t.string "state"
     t.integer "zip_code"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

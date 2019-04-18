@@ -1,17 +1,17 @@
 class Api::V1::DestinationsController < ApplicationController
-      
+
    before_action :set_destination, only: [:show]
 
-   def index 
-      @destinations = Destination.all 
+   def index
+      @destinations = Destination.all
       render json: @destinations
-   end 
-   
+   end
+
    def show
-      render json: @destination 
-   end 
-   
-   def create 
+      render json: @destination
+   end
+
+   def create
       params = destination_params
       user_id = params.delete("user_id")
       @user = User.find(user_id)
@@ -20,17 +20,17 @@ class Api::V1::DestinationsController < ApplicationController
       @favorite = Favorite.create(user: @user, destination: @destination)
       tags.each do |tag_name|
          @tag = Tag.find_or_create_by(name: tag_name, user: @user)
-         @favorite.tags << @tag 
+         @favorite.tags << @tag
          @favorite.save
          @tag.save
       end
       render json: @favorite
-   end 
+   end
 
-   private 
+   private
 
    def destination_params
-      params.require(:destination).permit(:latitude, :longitude, :name, :user_id, :tags => [])
+      params.require(:destination).permit(:latitude, :longitude, :name, :user_id, :image, :tags => [])
    end
 
    def set_destination
