@@ -14,7 +14,7 @@ require "action_cable/engine"
 require_relative '../lib/api_communicators/dark_sky.rb'
 #require api_keys
 require_relative './api_keys.rb'
-# require "./api_communicators/dark_sky"
+
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 

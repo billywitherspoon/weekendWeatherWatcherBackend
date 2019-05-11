@@ -5,4 +5,5 @@ class Forecast < ApplicationRecord
   def dark_sky
     self.data = DarkSky.forecast
   end 
+  
 end
